@@ -6,10 +6,12 @@ class Divination extends React.Component {
   };
 
   handleRandom = () => {
-    const randomNumber = Math.floor(Math.random() * this.state.allDivinations.length);
+    const { allDivinations } = this.state;
+
+    const randomNumber = Math.floor(Math.random() * allDivinations.length);
 
     this.setState({
-      randomDivination: this.state.allDivinations[randomNumber],
+      randomDivination: allDivinations[randomNumber],
     });
   };
 
@@ -20,24 +22,25 @@ class Divination extends React.Component {
   };
 
   handleAdd = () => {
+    const { allDivinations, inputValue } = this.state;
+
     this.setState({
-      allDivinations: this.state.allDivinations.concat(this.state.inputValue),
+      allDivinations: allDivinations.concat(inputValue),
       inputValue: "",
     });
 
-    alert(
-      `Dodano nową wróżbę: ${this.state.inputValue}, do tablicy wróżb: ${this.state.allDivinations}.`
-    );
+    alert(`Dodano nową wróżbę: ${inputValue}, do tablicy wróżb: ${allDivinations}.`);
   };
 
   render() {
+    const { inputValue, randomDivination } = this.state;
     return (
       <>
         <button onClick={this.handleRandom}>Zobacz wróżbę</button>
         <br />
-        <input onChange={this.handleInput} value={this.state.inputValue} type="text" />
+        <input onChange={this.handleInput} value={inputValue} type="text" />
         <button onClick={this.handleAdd}>Dodaj wróżbę</button>
-        <h1>{this.state.randomDivination}</h1>
+        <h1>{randomDivination}</h1>
       </>
     );
   }
