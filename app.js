@@ -24,8 +24,13 @@ class Divination extends React.Component {
   handleAdd = () => {
     const { allDivinations, inputValue } = this.state;
 
+    if (inputValue === "") return alert("Wpisz coś...");
+
+    const divinationsArray = [...allDivinations];
+    divinationsArray.push(inputValue);
+
     this.setState({
-      allDivinations: allDivinations.concat(inputValue),
+      allDivinations: divinationsArray,
       inputValue: "",
     });
 
