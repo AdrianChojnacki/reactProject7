@@ -26,15 +26,14 @@ class Divination extends React.Component {
 
     if (inputValue === "") return alert("Wpisz coś...");
 
-    const divinationsArray = [...allDivinations];
-    divinationsArray.push(inputValue);
+    const divinationsArray = allDivinations.concat(inputValue);
 
     this.setState({
       allDivinations: divinationsArray,
       inputValue: "",
     });
 
-    alert(`Dodano nową wróżbę: ${inputValue}, do tablicy wróżb: ${allDivinations}.`);
+    alert(`Wróżba dodana! Aktualne wróżby: ${divinationsArray}.`);
   };
 
   render() {
