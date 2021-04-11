@@ -41,7 +41,7 @@ class Divination extends React.Component {
         <br />
         <input onChange={this.handleInput} value={inputValue} type="text" />
         <button onClick={this.handleAdd}>Dodaj wróżbę</button>
-        <h1>{randomDivination}</h1>
+        {randomDivination ? <h1>{randomDivination}</h1> : null}
       </>
     );
   }
