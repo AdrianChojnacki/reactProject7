@@ -34,6 +34,7 @@ class Divination extends React.Component {
 
   render() {
     const { inputValue, randomDivination } = this.state;
+
     return (
       <>
         <button onClick={this.handleRandom}>Zobacz wróżbę</button>
